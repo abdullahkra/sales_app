@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:sales/components/product_card.dart';
+import 'package:sales/models/product.dart';
 
 //sdadsa
 void main() {
-  runApp(const sale());
+  runApp(const Sale());
 }
 
-class sale extends StatefulWidget {
-  const sale({super.key});
+class Sale extends StatefulWidget {
+  const Sale({super.key});
 
   @override
-  State<sale> createState() => _saleState();
+  State<Sale> createState() => _SaleState();
 }
 
-class _saleState extends State<sale> {
+class _SaleState extends State<Sale> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      home: Scaffold(
+        body: ProductCard(
+          product: Product(category: ""),
+        ),
+      ),
+    );
   }
 }
