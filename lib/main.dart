@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sales/components/product_card.dart';
 import 'package:sales/models/product.dart';
+import 'package:sales/screens/home_screen.dart';
 
 //sdadsa
 void main() {
@@ -17,12 +18,6 @@ class Sale extends StatefulWidget {
 class _SaleState extends State<Sale> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: ProductCard(
-          product: Product(category: ""),
-        ),
-      ),
-    );
+    return MaterialApp(home: HomePage());
   }
 }
