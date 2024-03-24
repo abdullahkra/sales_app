@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sales/components/product_card.dart';
-import 'package:sales/models/product.dart';
 import 'package:sales/screens/home_screen.dart';
 
 //sdadsa

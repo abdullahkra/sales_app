@@ -3,8 +3,10 @@ import 'package:sales/models/category.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryModel category;
-  const CategoryCard(
-      {super.key, required this.category, required Null Function() onTap});
+  const CategoryCard({
+    super.key,
+    required this.category,
+  });
 
   @override
   Widget build(BuildContext context) {
