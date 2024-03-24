@@ -6,16 +6,13 @@ void main() {
   runApp(const Sale());
 }
 
-class Sale extends StatefulWidget {
+class Sale extends StatelessWidget {
   const Sale({super.key});
 
   @override
-  State<Sale> createState() => _SaleState();
-}
-
-class _SaleState extends State<Sale> {
-  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomePage());
+    return const MaterialApp(
+      home: HomePage(),
+    );
   }
 }

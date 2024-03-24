@@ -32,19 +32,5 @@ class ProductService {
 
 
 
-/* class ProductService {
-  static const String url = 'https://fakestoreapi.com/products'; 
 
-  static Future<List<Product>> getProductData() async {
-    final response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      Iterable list = json.decode(response.body);
-      return list.map((model) => Product.fromJson(model)).toList();
-    } else {
-      throw Exception('Failed to load products');
-    }
-  }
-
-  static fetchProductsByCategory(String categoryName) {}
-} */
 
