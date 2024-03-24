@@ -15,4 +15,6 @@ class ProductService {
       throw Exception('Failed to load products');
     }
   }
+
+  static fetchProductsByCategory(String categoryName) {}
 }

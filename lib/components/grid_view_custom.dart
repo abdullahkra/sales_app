@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sales/components/product_card.dart';
+import 'package:sales/models/product.dart';
 import 'package:sales/screens/details_page.dart';
 
-class CustomGridView extends StatelessWidget {
-  const CustomGridView({super.key});
+class GridViewCustom extends StatelessWidget {
+  const GridViewCustom(
+      {super.key,
+      required List<Product> products,
+      required Null Function(dynamic product) onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +16,15 @@ class CustomGridView extends StatelessWidget {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         childAspectRatio: 0.7,
-        ////////////////////////////////////////
       ),
       itemBuilder: (context, index) => InkWell(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const DetailsPage()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const DetailsPage(
+                        product: null,
+                      )));
         },
       ),
     );

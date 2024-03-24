@@ -18,6 +18,6 @@ class Sale extends StatefulWidget {
 class _SaleState extends State<Sale> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return const MaterialApp(home: HomePage());
   }
 }
