@@ -5,7 +5,7 @@ import 'package:sales/screens/details_page.dart';
 class GridViewCustom extends StatelessWidget {
   const GridViewCustom(
       {super.key,
-      required List<Product> products,
+      required List<ProductModel> products,
       required Null Function(dynamic product) onTap});
 
   @override

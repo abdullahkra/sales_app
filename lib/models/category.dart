@@ -1,12 +1,11 @@
-class Category {
+class CategoryModel {
   String? name;
 
-  Category({this.name});
+  CategoryModel({this.name});
 
-  factory Category.fromJson(String json) {
-    return Category(name: json);
+  factory CategoryModel.fromJson(String json) {
+    return CategoryModel(name: json);
   }
-
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

@@ -1,19 +1,23 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:sales/models/category.dart';
 
 class CategoryService {
-  static const String apiUrl = 'https://fakestoreapi.com/products/categories';
+  static const String url = 'https://fakestoreapi.com/products/categories';
 
-  static Future<List<Category>> fetchCategories() async {
-    final response = await http.get(Uri.parse(apiUrl));
-    if (response.statusCode == 200) {
-      Iterable list = json.decode(response.body);
-      List<Category> categories =
-          list.map((model) => Category.fromJson(model)).toList();
-      return categories;
-    } else {
-      throw Exception('Failed to load categories');
+  static Future<List<CategoryModel>> getCategoryData() async {
+    try {
+      final dio = Dio();
+      final response = await dio.get(url);
+      if (response.statusCode == 200) {
+        final List list = response.data;
+        List<CategoryModel> categoryList =
+            list.map((e) => CategoryModel.fromJson(e)).toList();
+        return categoryList;
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception("Error: $e");
     }
   }
 }
