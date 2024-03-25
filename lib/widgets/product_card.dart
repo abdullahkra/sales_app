@@ -8,33 +8,44 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
-        children: [
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(product.image ?? "err"),
-                fit: BoxFit.cover,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(product.image ?? "err"),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
-              borderRadius: BorderRadius.circular(8),
             ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            product.title ?? "err",
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Text(
-            "\$${product.price.toString()}",
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.title ?? "err",
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    "\$${product.price.toString()}",
+                    style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

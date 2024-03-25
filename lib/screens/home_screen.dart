@@ -9,6 +9,7 @@ import 'package:sales/screens/search_screen.dart';
 import 'package:sales/services/category_service.dart';
 import 'package:sales/services/product_service.dart';
 import 'package:sales/widgets/category_card.dart';
+import 'package:sales/widgets/grid_view_custom.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -298,7 +299,32 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 30,
+            child: const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 17.0),
+                child: Text(
+                  "Best Seller",
+                  style: TextStyle(
+                      fontFamily: "Mark",
+                      fontWeight: FontWeight.w900,
+                      fontSize: 25,
+                      color: Color.fromRGBO(1, 0, 53, 1)),
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 2.5,
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: GridViewCustom(products: products, onTap: (product) {}),
+            ),
+          ),
         ],
       ),
     );
