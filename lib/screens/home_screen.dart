@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unnecessary_import
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -101,6 +103,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SearchBar(
+              leading: const Icon(Icons.search),
+              hintText: "Search",
               onTap: () {
                 Navigator.push(
                   context,
@@ -109,6 +113,192 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 4.6,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 15,
+              ),
+              child: PageView(
+                children: [
+                  Stack(
+                    children: [
+                      Image.asset(
+                        "assets/images/iphoneFoto.png",
+                      ),
+                      const Positioned(
+                        top: 48,
+                        left: 30,
+                        child: Text(
+                          "Iphone 12",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Maven",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 80,
+                        left: 30,
+                        child: Text(
+                          "Súper. Mega. Rápido.",
+                          style: TextStyle(color: Colors.white, fontSize: 11),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 40,
+                        left: 30,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Buy now!",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 15,
+                        left: 30,
+                        child: CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Color.fromRGBO(255, 110, 78, 1),
+                          child: Text(
+                            "New",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontFamily: "Maven",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Stack(
+                    children: [
+                      Image.asset(
+                        "assets/images/iphoneFoto.png",
+                      ),
+                      const Positioned(
+                        top: 48,
+                        left: 30,
+                        child: Text(
+                          "Iphone 12",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Maven",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 80,
+                        left: 30,
+                        child: Text(
+                          "Súper. Mega. Rápido.",
+                          style: TextStyle(color: Colors.white, fontSize: 11),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 40,
+                        left: 30,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Buy now!",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 15,
+                        left: 30,
+                        child: CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Color.fromRGBO(255, 110, 78, 1),
+                          child: Text(
+                            "New",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontFamily: "Maven",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Stack(
+                    children: [
+                      Image.asset(
+                        "assets/images/iphoneFoto.png",
+                      ),
+                      const Positioned(
+                        top: 48,
+                        left: 30,
+                        child: Text(
+                          "Iphone 12",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Maven",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 80,
+                        left: 30,
+                        child: Text(
+                          "Súper. Mega. Rápido.",
+                          style: TextStyle(color: Colors.white, fontSize: 11),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 40,
+                        left: 30,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Buy now!",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                        top: 15,
+                        left: 30,
+                        child: CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Color.fromRGBO(255, 110, 78, 1),
+                          child: Text(
+                            "New",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontFamily: "Maven",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

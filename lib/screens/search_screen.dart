@@ -1,5 +1,7 @@
 // search_page.dart
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:sales/models/product.dart';
 import 'package:sales/services/product_service.dart';
@@ -54,7 +56,6 @@ class _SearchPageState extends State<SearchPage> {
           return ListTile(
             title: Text(product.title!),
             subtitle: Text(product.description!),
-            
           );
         },
       ),

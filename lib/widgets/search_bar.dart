@@ -13,22 +13,12 @@ class SearchBar extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 40,
+        height: MediaQuery.sizeOf(context).height / 25,
         decoration: BoxDecoration(
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(20),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: const Row(
-          children: [
-            Icon(Icons.search),
-            SizedBox(width: 10),
-            Text(
-              'Search...',
-              style: TextStyle(color: Colors.grey),
-            ),
-          ],
-        ),
       ),
     );
   }
