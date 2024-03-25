@@ -54,7 +54,7 @@ class _SearchPageState extends State<SearchPage> {
           return ListTile(
             title: Text(product.title!),
             subtitle: Text(product.description!),
-            // Diğer ürün bilgileri buraya eklenebilir
+            
           );
         },
       ),
