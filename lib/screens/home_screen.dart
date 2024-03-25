@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sales/models/category.dart';
 import 'package:sales/models/product.dart';
+import 'package:sales/screens/search_screen.dart';
 import 'package:sales/services/category_service.dart';
 import 'package:sales/services/product_service.dart';
 import 'package:sales/widgets/category_card.dart';
@@ -18,13 +19,13 @@ class _HomePageState extends State<HomePage> {
   List<ProductModel> products = [];
   List<CategoryModel> categories = [];
   void _getProductsData() async {
-    setState(() {});
     products = await ProductService.getProductData();
+    setState(() {});
   }
 
   void _getCategoryData() async {
-    setState(() {});
     categories = await CategoryService.getCategoryData();
+    setState(() {});
   }
 
   @override
@@ -75,20 +76,35 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width * 0.2,
-                        height: 71,
+                        height: MediaQuery.of(context).size.height * 0.08,
                         decoration: const BoxDecoration(
-                            color: Colors.blue, shape: BoxShape.circle),
+                            color: Color.fromRGBO(167, 171, 201, 0.15),
+                            shape: BoxShape.circle),
                         child: const Center(child: Text('Resim')),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         categories[index].name.toString(),
                         textAlign: TextAlign.center,
-                        style:
-                            const TextStyle(fontFamily: "Mark", fontSize: 12),
+                        style: const TextStyle(
+                            fontFamily: "Mark",
+                            fontSize: 12,
+                            fontWeight: FontWeight.w900),
                       ),
                     ],
                   ),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SearchBar(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchPage()),
                 );
               },
             ),

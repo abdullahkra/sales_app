@@ -13,7 +13,6 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      //elevation: 20,
       color: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
