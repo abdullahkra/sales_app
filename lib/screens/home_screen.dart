@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sales/models/category.dart';
 import 'package:sales/models/product.dart';
+import 'package:sales/screens/details_page.dart';
 import 'package:sales/screens/search_screen.dart';
 import 'package:sales/services/category_service.dart';
 import 'package:sales/services/product_service.dart';
@@ -322,7 +323,15 @@ class _HomePageState extends State<HomePage> {
             height: MediaQuery.of(context).size.height / 2.5,
             child: Padding(
               padding: const EdgeInsets.all(20),
-              child: GridViewCustom(products: products, onTap: (product) {}),
+              child: GridViewCustom(
+                  products: products,
+                  onTap: (product) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailsScreen(data: product)),
+                    );
+                  }),
             ),
           ),
         ],
