@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sales/models/product.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -93,18 +94,79 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
               child: Column(
                 children: [
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height / 30,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Text(
                       textAlign: TextAlign.left,
                       widget.data.title.toString(),
                       style: const TextStyle(
+                          fontFamily: "Mark",
                           color: Color.fromRGBO(1, 0, 53, 1),
                           fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w900),
                     ),
                   ),
-                  
+                  Padding(
+                    padding: const EdgeInsets.only(right: 240.0),
+                    child: RatingBar(
+                      ratingWidget: RatingWidget(
+                        full: const Icon(Icons.star,
+                            color: Color.fromRGBO(255, 184, 0, 1)),
+                        half: const Icon(Icons.star_half),
+                        empty: const Icon(Icons.star_border),
+                      ),
+                      initialRating: widget.data.rating?.rate ?? 0.0,
+                      itemSize: 20,
+                      itemPadding: const EdgeInsets.symmetric(horizontal: 3),
+                      onRatingUpdate: (rating) {
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height / 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Shop",
+                          style: TextStyle(
+                              fontFamily: "Mark",
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(1, 0, 53, 1)),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Details",
+                          style: TextStyle(
+                              fontFamily: "Mark",
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(1, 0, 53, 1)),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Features",
+                          style: TextStyle(
+                              fontFamily: "Mark",
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(1, 0, 53, 1)),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
