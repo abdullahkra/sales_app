@@ -53,24 +53,21 @@ class _DetailsScreenState extends State<DetailsScreen> {
               width: MediaQuery.sizeOf(context).width * 0.75,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Hero(
-                  tag: "${widget.data.image}",
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage(
-                            image: NetworkImage(
-                              "${widget.data.image}",
-                            ),
-                            fit: BoxFit.fill),
-                        boxShadow: const [
-                          BoxShadow(
-                              offset: Offset(0, 4),
-                              blurRadius: 4,
-                              color: Colors.black26)
-                        ]),
-                  ),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            "${widget.data.image}",
+                          ),
+                          fit: BoxFit.fill),
+                      boxShadow: const [
+                        BoxShadow(
+                            offset: Offset(0, 4),
+                            blurRadius: 4,
+                            color: Colors.black26)
+                      ]),
                 ),
               ),
             ),
@@ -88,7 +85,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   BoxShadow(
                     offset: Offset(0, 4),
                     blurRadius: 4,
-                    color: Colors.black26,
+                    color: Colors.black,
                   )
                 ],
               ),
@@ -166,6 +163,36 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         ),
                       )
                     ],
+                  ),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 0.86,
+                    height: MediaQuery.sizeOf(context).height * 0.06,
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(255, 110, 78, 1),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Text(
+                          "Add to Cart",
+                          style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontFamily: "Mark",
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20),
+                        ),
+                        Text(
+                          "\$${widget.data.price.toString()}",
+                          style: const TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontFamily: "Mark",
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
