@@ -7,6 +7,7 @@ class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key, required this.data});
 
   @override
+  // ignore: library_private_types_in_public_api
   _DetailsScreenState createState() => _DetailsScreenState();
 }
 
@@ -126,45 +127,32 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height / 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Shop",
-                          style: TextStyle(
-                              fontFamily: "Mark",
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(1, 0, 53, 1)),
+                  DefaultTabController(
+                    initialIndex: 0,
+                    length: 3,
+                    child: Column(
+                      children: [
+                        const TabBar(
+                          tabs: [
+                            Tab(text: 'Shop'),
+                            Tab(text: 'Details'),
+                            Tab(text: 'Features'),
+                          ],
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Details",
-                          style: TextStyle(
-                              fontFamily: "Mark",
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(1, 0, 53, 1)),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          child: TabBarView(
+                            children: [
+                              const Center(child: Text('Shop Content')),
+                              Center(child: Text('${widget.data.description}')),
+                              const Center(child: Text('Features Content')),
+                            ],
+                          ),
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Features",
-                          style: TextStyle(
-                              fontFamily: "Mark",
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(1, 0, 53, 1)),
-                        ),
-                      )
-                    ],
+                      ],
+                    ),
                   ),
-                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
+                  //SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 0.86,
                     height: MediaQuery.sizeOf(context).height * 0.06,
@@ -203,23 +191,3 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 }
-/* Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Text(
-              widget.data.title.toString(),
-              style: const TextStyle(
-                  color: Colors.black87,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
-            ),
-          ), */
-/* Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Text(
-              "Price \$${widget.data.price}",
-              style: const TextStyle(
-                  color: Colors.black54,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
-            ),
-          ), */

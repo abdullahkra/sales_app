@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sales/models/product.dart';
+import 'package:sales/screens/details_page.dart';
 import 'package:sales/services/product_service.dart';
 
 class SearchPage extends StatefulWidget {
@@ -53,9 +54,19 @@ class _SearchPageState extends State<SearchPage> {
         itemCount: filteredProducts.length,
         itemBuilder: (context, index) {
           var product = filteredProducts[index];
-          return ListTile(
-            title: Text(product.title!),
-            subtitle: Text(product.description!),
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(data: product),
+                ),
+              );
+            },
+            child: ListTile(
+              title: Text(product.title!),
+              subtitle: Text(product.description!),
+            ),
           );
         },
       ),

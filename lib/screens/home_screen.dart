@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sales/models/category.dart';
 import 'package:sales/models/product.dart';
+import 'package:sales/screens/all_products_page.dart';
 import 'package:sales/screens/details_page.dart';
 import 'package:sales/screens/search_screen.dart';
 import 'package:sales/services/category_service.dart';
@@ -303,19 +304,42 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height / 30,
-            child: const Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 17.0),
-                child: Text(
-                  "Best Seller",
-                  style: TextStyle(
-                      fontFamily: "Mark",
-                      fontWeight: FontWeight.w900,
-                      fontSize: 25,
-                      color: Color.fromRGBO(1, 0, 53, 1)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 18.0),
+                  child: Text(
+                    "Best Seller",
+                    style: TextStyle(
+                        fontFamily: "Mark",
+                        fontWeight: FontWeight.w900,
+                        fontSize: 25,
+                        color: Color.fromRGBO(1, 0, 53, 1)),
+                  ),
                 ),
-              ),
+                FittedBox(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              AllProductsScreen(products: products),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "all products",
+                      style: TextStyle(
+                          fontSize: 22,
+                          color: Color.fromRGBO(255, 110, 78, 1),
+                          fontFamily: "Mark",
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
 
