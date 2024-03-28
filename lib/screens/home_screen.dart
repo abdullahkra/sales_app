@@ -102,20 +102,41 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SearchBar(
-              leading: const Icon(Icons.search),
-              hintText: "Search",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SearchPage()),
-                );
-              },
+          SizedBox(height: MediaQuery.sizeOf(context).height / 40),
+          GestureDetector(
+            onTap: () {
+              // Arama çubuğuna tıklandığında yapılacak işlem
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
+            },
+            child: Container(
+              width: MediaQuery.sizeOf(context).width / 1.1,
+              height: MediaQuery.sizeOf(context).height / 19,
+              decoration: BoxDecoration(
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromRGBO(191, 197, 245, 0.15),
+                    offset: Offset(0, 0),
+                    blurRadius: 20,
+                  ),
+                ],
+                color: const Color.fromRGBO(255, 255, 255, 1),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(width: MediaQuery.sizeOf(context).width / 20),
+                  const Icon(Icons.search),
+                  SizedBox(width: MediaQuery.sizeOf(context).width / 20),
+                  const Text("Search", style: TextStyle(color: Colors.grey)),
+                ],
+              ),
             ),
           ),
+          SizedBox(height: MediaQuery.sizeOf(context).height / 40),
+
           SizedBox(
             height: MediaQuery.of(context).size.height / 4.6,
             child: Padding(

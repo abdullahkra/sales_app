@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sales/models/product.dart';
 
@@ -93,7 +94,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.sizeOf(context).height / 30,
+                    height: MediaQuery.sizeOf(context).height / 60,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20),
@@ -125,7 +126,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.sizeOf(context).height / 30,
+                    height: MediaQuery.sizeOf(context).height / 100,
                   ),
                   DefaultTabController(
                     initialIndex: 0,
@@ -144,7 +145,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           child: TabBarView(
                             children: [
                               const Center(child: Text('Shop Content')),
-                              Center(child: Text('${widget.data.description}')),
+                              SingleChildScrollView(
+                                  child: Center(
+                                      child:
+                                          Text('${widget.data.description}'))),
                               const Center(child: Text('Features Content')),
                             ],
                           ),
