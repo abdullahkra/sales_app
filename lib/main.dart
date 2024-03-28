@@ -14,6 +14,7 @@ class Sale extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
+      
     );
   }
 }
