@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       // ignore: prefer_const_constructors
-      bottomNavigationBar: MyBottomNavigationBar(),
+      //bottomNavigationBar: MyBottomNavigationBar(),
     );
   }
 
