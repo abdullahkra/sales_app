@@ -81,7 +81,8 @@ class _HomePageState extends State<HomePage> {
           gridViewExtract(context),
         ],
       ),
-      bottomNavigationBar: const MyButtomNavigationBar(),
+      // ignore: prefer_const_constructors
+      bottomNavigationBar: MyBottomNavigationBar(),
     );
   }
 
