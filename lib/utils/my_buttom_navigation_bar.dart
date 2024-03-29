@@ -12,6 +12,7 @@ class MyBottomNavigationBar extends StatefulWidget {
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int _selectedIndex = 0;
   late List<Widget> allPages;
+
   @override
   void initState() {
     allPages = [
