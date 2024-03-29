@@ -11,28 +11,26 @@ class MyBottomNavigationBar extends StatefulWidget {
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int _selectedIndex = 0;
+  late List<Widget> allPages;
+  @override
+  void initState() {
+    allPages = [
+      const HomePage(),
+      const CartPage(),
+    ];
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-
-    if (index == 0) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
-    } else if (index == 1) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const CartPage()),
-      );
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: allPages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color.fromRGBO(1, 0, 53, 1),
         selectedItemColor: Colors.white,

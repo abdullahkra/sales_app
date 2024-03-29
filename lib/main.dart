@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sales/screens/home_screen.dart';
+import 'package:sales/utils/my_buttom_navigation_bar.dart';
 
 //sdadsa
 void main() {
@@ -13,7 +14,9 @@ class Sale extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: MyBottomNavigationBar(
+        
+      ),
       
     );
   }

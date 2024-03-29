@@ -22,16 +22,14 @@ class GridViewCustom extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
-        childAspectRatio: 0.57,
+        childAspectRatio: 0.65,
       ),
       itemCount: products.length >= 2 ? 2 : products.length,
       itemBuilder: (context, index) => InkWell(
         onTap: () {
           onTap(products[index]);
         },
-        child: Container(
-          child: ProductCard(product: products[index]),
-        ),
+        child: ProductCard(product: products[index]),
       ),
     );
   }

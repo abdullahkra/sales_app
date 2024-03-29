@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -96,94 +97,108 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height / 60,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      textAlign: TextAlign.left,
-                      widget.data.title.toString(),
-                      style: const TextStyle(
-                          fontFamily: "Mark",
-                          color: Color.fromRGBO(1, 0, 53, 1),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900),
+                  Flexible(
+                    flex: 2,
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: Text(
+                          textAlign: TextAlign.left,
+                          widget.data.title.toString(),
+                          style: const TextStyle(
+                              fontFamily: "Mark",
+                              color: Color.fromRGBO(1, 0, 53, 1),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900),
+                        ),
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 240.0),
-                    child: RatingBar(
-                      ratingWidget: RatingWidget(
-                        full: const Icon(Icons.star,
-                            color: Color.fromRGBO(255, 184, 0, 1)),
-                        half: const Icon(Icons.star_half),
-                        empty: const Icon(Icons.star_border),
+                  Flexible(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 240.0),
+                      child: RatingBar(
+                        ratingWidget: RatingWidget(
+                          full: const Icon(Icons.star,
+                              color: Color.fromRGBO(255, 184, 0, 1)),
+                          half: const Icon(Icons.star_half),
+                          empty: const Icon(Icons.star_border),
+                        ),
+                        initialRating: widget.data.rating?.rate ?? 0.0,
+                        itemSize: 20,
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 3),
+                        onRatingUpdate: (rating) {
+                          setState(() {});
+                        },
                       ),
-                      initialRating: widget.data.rating?.rate ?? 0.0,
-                      itemSize: 20,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 3),
-                      onRatingUpdate: (rating) {
-                        setState(() {});
-                      },
                     ),
                   ),
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height / 100,
                   ),
-                  DefaultTabController(
-                    initialIndex: 0,
-                    length: 3,
-                    child: Column(
-                      children: [
-                        const TabBar(
-                          tabs: [
-                            Tab(text: 'Shop'),
-                            Tab(text: 'Details'),
-                            Tab(text: 'Features'),
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          child: TabBarView(
-                            children: [
-                              const Center(child: Text('Shop Content')),
-                              SingleChildScrollView(
-                                  child: Center(
-                                      child:
-                                          Text('${widget.data.description}'))),
-                              const Center(child: Text('Features Content')),
+                  Flexible(
+                    flex: 6,
+                    child: DefaultTabController(
+                      initialIndex: 0,
+                      length: 3,
+                      child: Column(
+                        children: [
+                          const TabBar(
+                            tabs: [
+                              Tab(text: 'Shop'),
+                              Tab(text: 'Details'),
+                              Tab(text: 'Features'),
                             ],
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.15,
+                            child: TabBarView(
+                              children: [
+                                const Center(child: Text('Shop Content')),
+                                SingleChildScrollView(
+                                    child: Center(
+                                        child: Text(
+                                            '${widget.data.description}'))),
+                                const Center(child: Text('Features Content')),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   //SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
-                  Container(
-                    width: MediaQuery.sizeOf(context).width * 0.86,
-                    height: MediaQuery.sizeOf(context).height * 0.06,
-                    decoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 110, 78, 1),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Text(
-                          "Add to Cart",
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: "Mark",
-                              fontWeight: FontWeight.w900,
-                              fontSize: 20),
-                        ),
-                        Text(
-                          "\$${widget.data.price.toString()}",
-                          style: const TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: "Mark",
-                              fontWeight: FontWeight.w900,
-                              fontSize: 20),
-                        )
-                      ],
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 0.86,
+                      height: MediaQuery.sizeOf(context).height * 0.06,
+                      decoration: const BoxDecoration(
+                        color: Color.fromRGBO(255, 110, 78, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Text(
+                            "Add to Cart",
+                            style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontFamily: "Mark",
+                                fontWeight: FontWeight.w900,
+                                fontSize: 20),
+                          ),
+                          Text(
+                            "\$${widget.data.price.toString()}",
+                            style: const TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontFamily: "Mark",
+                                fontWeight: FontWeight.w900,
+                                fontSize: 20),
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],

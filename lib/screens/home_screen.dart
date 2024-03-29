@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
 
   SizedBox gridViewExtract(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 2.5,
+      height: MediaQuery.of(context).size.height / 2.9,
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: GridViewCustom(
